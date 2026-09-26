@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project demonstrates an end-to-end CI/CD pipeline for deploying a Spring Boot application using Docker and Kubernetes.
+This project demonstrates an end-to-end CI/CD pipeline for deploying a Spring Boot application using Docker and Kubernetes. 
 
 The project extends the previous Docker-based CI/CD project by introducing Kubernetes for container orchestration and AWS EKS as the cloud Kubernetes environment.
 
@@ -12,7 +12,7 @@ Developer → GitHub → Jenkins → Maven Build/Test → Docker Build → Docke
 
 The Kubernetes deployment can be tested locally using Minikube and in the cloud using Amazon EKS.
 
----
+----
 
 ## Technologies Used
 
