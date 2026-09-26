@@ -26,6 +26,16 @@ pipeline {
           }
         }
     }
+      stage('Deploy to Kubernetes') {
+        steps {
+             sh '''
+                kubectl --server=http://127.0.0.1:8002 apply -f k8s/configmap.yaml
+                kubectl --server=http://127.0.0.1:8002 apply -f k8s/secret.yaml
+                kubectl --server=http://127.0.0.1:8002 apply -f k8s/deployment.yaml
+                kubectl --server=http://127.0.0.1:8002 apply -f k8s/service.yaml
+          '''
+        }
+    }
 
     }
 }
