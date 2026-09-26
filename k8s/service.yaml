@@ -4,10 +4,10 @@ metadata:
   name: spring-boot-app-service
   namespace: devops-k8s
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: spring-boot-app
-  ports:    
+  ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080 
+      targetPort: 8080
