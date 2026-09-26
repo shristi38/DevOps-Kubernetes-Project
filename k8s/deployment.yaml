@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-app-container
-          image: shrishti38/devops-cicd-java-app:v3
+          image: shrishti38/devops-cicd-java-app:v4
           ports:
             - containerPort: 8080 
           env:
