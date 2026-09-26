@@ -10,7 +10,7 @@ public class AppTest {
     public void testMessage() {
         App app = new App();
         assertEquals(
-            "Hello from DevOps CI/CD Pipeline!",
+            "Hello from DevOps CI/CD Pipeline - Automated Deployment!",
             app.getMessage()
         );
     }
