@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap 
+metadata:
+  name: spring-boot-app-config
+  namespace: devops-k8s 
+data:
+  APP_ENV: development

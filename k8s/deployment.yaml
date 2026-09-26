@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: devops-k8s
+  name: spring-boot-app-deployment
+  labels:
+    app: spring-boot-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:    
+      app: spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app 
+    spec:
+      containers:
+        - name: spring-boot-app-container
+          image: shrishti38/devops-cicd-java-app:v3
+          ports:
+            - containerPort: 8080 
+          env:
+            - name: APP_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-boot-app-config
+                  key: APP_ENV 
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: spring-boot-app-secret
+                  key: DB_PASSWORD
+          startupProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 5
+            failureThreshold: 24
+          livenessProbe:
+            httpGet: 
+              path: /
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:  
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 5
